@@ -9,6 +9,7 @@ export default async function About({ params, searchParams }) {
   return (
     <div>
       <h1>About</h1>
+      
       <Link href="/">home</Link>
     </div>
   );

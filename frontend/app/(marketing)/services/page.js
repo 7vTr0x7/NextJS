@@ -1,5 +1,6 @@
+import Info from "@/app/_components/Info";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 
 const Services = () => {
   return (
@@ -9,6 +10,10 @@ const Services = () => {
       <Link href="/">home</Link>
       <Link href="/services/web">Web</Link>
       <Link href="/services/app">App</Link>
+
+      <Suspense fallback="loading...">
+        <Info />
+      </Suspense>
     </div>
   );
 };

@@ -1,4 +1,6 @@
+import Info from "@/app/_components/Info";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 export const dynamicParams = false;
 export const revalidate = 5;
@@ -26,6 +28,9 @@ const About1 = async ({ params }) => {
     <div>
       About1 {aboutId}
       <h2>date: {new Date().toLocaleString()}</h2>
+      <Suspense fallback="loading...">
+        <Info />
+      </Suspense>
     </div>
   );
 };
