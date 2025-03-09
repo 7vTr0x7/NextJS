@@ -1,5 +1,8 @@
 import { notFound } from "next/navigation";
 
+export const dynamicParams = false;
+export const revalidate = 5;
+
 export const generateMetadata = async ({ params }) => {
   const { aboutId } = await params;
 
@@ -8,13 +11,23 @@ export const generateMetadata = async ({ params }) => {
   };
 };
 
+export const generateStaticParams = () => {
+  return [{ aboutId: "1" }, { aboutId: "2" }, { aboutId: "3" }];
+};
+
 const About1 = async ({ params }) => {
   const { aboutId } = await params;
+  console.log(aboutId);
 
   if (!/^\d+$/.test(aboutId)) {
     notFound();
   }
-  return <div>About1 {aboutId}</div>;
+  return (
+    <div>
+      About1 {aboutId}
+      <h2>date: {new Date().toLocaleString()}</h2>
+    </div>
+  );
 };
 
 export default About1;
